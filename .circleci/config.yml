@@ -21,13 +21,12 @@ jobs:
       - run: 
           name: install awscli 
           command: |
-            apk add --update curl
-            apk add --update sudo
+            
+            apk update && apk add --no-cache curl gcompat zip
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
             echo "Hello"
-            sudo ./aws/install
-            export PATH=$HOME/.local/bin:$PATH
+            
             aws --version
   
 
