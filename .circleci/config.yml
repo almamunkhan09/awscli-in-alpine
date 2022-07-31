@@ -29,6 +29,8 @@ jobs:
             npm --version
             yum update -y
             yum install -y python3
+            sudo amazon-linux-extras install ansible2 -y
+            ansible --version
   
 
 # Invoke jobs via workflows
