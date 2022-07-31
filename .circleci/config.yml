@@ -22,11 +22,10 @@ jobs:
           name: install awscli 
           command: |
             apk add --update curl
+            apk add --update sudo
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
-            apk add --update sudo
             sudo ./aws/install
-            aws --version
   
 
 # Invoke jobs via workflows
