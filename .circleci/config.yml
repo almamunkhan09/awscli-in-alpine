@@ -24,7 +24,7 @@ jobs:
             echo "Hello"
             yum install sudo -y
             curl -sL https://rpm.nodesource.com/setup_13.x | sudo bash -
-            sudo yum install nodejs
+            sudo yum install nodejs -y
             node --version
             npm --version
   
