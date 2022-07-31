@@ -27,6 +27,8 @@ jobs:
             sudo yum install nodejs -y
             node --version
             npm --version
+            yum update -y
+            yum install -y python3
   
 
 # Invoke jobs via workflows
