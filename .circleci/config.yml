@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Install tar utility
           command: |
-            yum install -y tar gzip
+            apk add tar gzip
       - run: 
           name: install awscli 
           command: |
