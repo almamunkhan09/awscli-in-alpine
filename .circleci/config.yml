@@ -9,7 +9,7 @@ jobs:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: amazon/aws-cli:2.7.18 
+      - image: python:3.7-alpine3.11
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -19,18 +19,14 @@ jobs:
           command: |
             yum install -y tar gzip
       - run: 
-          name: install node
+          name: install awscli 
           command: |
-            echo "Hello"
-            yum install sudo -y
-            curl -sL https://rpm.nodesource.com/setup_13.x | sudo bash -
-            sudo yum install nodejs -y
-            node --version
-            npm --version
-            yum update -y
-            yum install -y python3
-            sudo amazon-linux-extras install ansible2 -y
-            ansible --version
+            apk add --update curl
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            apk add --update sudo
+            sudo ./aws/install
+            aws --version
   
 
 # Invoke jobs via workflows
